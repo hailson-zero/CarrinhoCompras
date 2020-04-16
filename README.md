@@ -1,2 +1,2 @@
 # CarrinhoCompras
-Um software de cadastro de produto
+Uma aplicação web de cadastro de produto
