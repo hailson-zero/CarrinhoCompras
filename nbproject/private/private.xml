@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/T-Gamer/Documents/NetBeansProjects/CarrinhoCompras/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/T-Gamer/Documents/GitHub/CarrinhoCompras/web/private/cadastros/produto/alter.xhtml</file>
+            <file>file:/C:/Users/T-Gamer/Documents/GitHub/CarrinhoCompras/web/private/cadastros/produto/list.xhtml</file>
+            <file>file:/C:/Users/T-Gamer/Documents/GitHub/CarrinhoCompras/src/java/domain/Produto.java</file>
+            <file>file:/C:/Users/T-Gamer/Documents/GitHub/CarrinhoCompras/src/java/controller/ProdutoController.java</file>
         </group>
     </open-files>
 </project-private>

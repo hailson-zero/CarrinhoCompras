@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:composition template="/private/template/template.xhtml">
+        <ui:define name="conteudo">
+            <p:panel id="panel2" header="Produtos no Carrinho" style="margin: 20px 35px 30px 35px ">
+                <p:dataTable id="datatable2" value="#{carrinhoMB.carrinhos}" var="carrinho"
+                             emptyMessage="Nenhum registro encontrado" style="margin: 10px;"
+                             paginator="true" paginatorPosition="bottom">
+                                     
+                    <p:column headerText="Nome" sortBy="#{carrinho.produto.nome}">
+                        <h:outputText value="#{carrinho.produto.nome}"/>
+                    </p:column>
+                    
+                    <p:column headerText="Preço" width="8%" sortBy="#{carrinho.produto.preco}">
+                        <h:outputText value="#{carrinho.produto.preco}">
+                            <f:convertNumber minFractionDigits="2"/>
+                        </h:outputText>
+                    </p:column>
+                    
+                    <p:column headerText="Quantidade" width="8%" sortBy="#{carrinho.quant}">
+                        <h:outputText value="#{carrinho.quant}">
+                            <f:convertNumber minFractionDigits="0"/>
+                        </h:outputText>
+                    </p:column>
+                    
+                    <p:column headerText="SubTotal" width="8%" sortBy="#{carrinho.subTotal}">
+                        <h:outputText value="#{carrinho.subTotal}">
+                            <f:convertNumber minFractionDigits="2"/>
+                        </h:outputText>
+                    </p:column>
+                    
+                </p:dataTable>
+                <div align="right" style="margin: 0px 10px 0px 0px ">
+                        <label>Total da Compra</label><br/>
+                        <p:inputText id="id" value="#{carrinhoMB.totalCompra}" style="width: 10%;"
+                                     required="true" disabled="true" requiredMessage="Quantidade é obrigatória!" />
+                </div>
+                
+                <label>Sua compra está quase concluída, favor escolher sua forma de pagamento!</label>
+                <p:tabView>
+                    <p:tab title="Boleto">
+                        <div align="center">
+                            <p:commandButton id="finalizarBoleto" value="Gerar Boleto" action="#{carrinhoMB.limparCarrinho()}"
+                                             onclick="if (!confirm('Deseja Confirmar a Compra?')) return false" update=":form:growl"/>
+                        </div>
+                    </p:tab>
+                    <p:tab title="Cartão">
+                        <h:panelGrid columns="1" cellpadding="50">
+                            <div>
+                                <label>Número do Cartão</label>
+                                <p:inputMask id="numCartao" style="width: 98%" mask="9999999999999999"/>
+                            </div>
+                            <div>
+                                <label>Nome do Cartão</label>
+                                <p:inputText id="nomeCartao" style="width: 98%"/>
+                            </div>
+                            <div>
+                                <label>Data Nascimento</label>
+                                <p:inputMask id="dataValida" mask="99/99"/>
+                            </div>
+                            <div>
+                                <label>Código Segurança</label>
+                                <p:inputMask id="codSeguranca" mask="9999"/>
+                            </div>
+                            
+                            <div align="center">
+                                <p:commandButton id="finalizarCartao" value="Realizar Pagamento" action="#{carrinhoMB.limparCarrinho}"
+                                                 onclick="if (!confirm('Deseja Confirmar a Compra?')) return false" update=":form:growl"/>
+                            </div>
+                        </h:panelGrid>
+                    </p:tab>
+                </p:tabView>
+                
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>

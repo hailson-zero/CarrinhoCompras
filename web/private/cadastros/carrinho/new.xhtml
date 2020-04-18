@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/private/template/template.xhtml">
+        <ui:define name="conteudo">
+            <p:panel id="panel" header="Produtos" style="margin: 20px 35px 30px 35px;">
+                <div class="ui-g">
+                    
+                    <div class="ui-g-3">
+                        <label>Nome</label><br/>
+                        <p:inputText id="nome" value="#{carrinhoMB.carrinho.produto.nome}" style="width: 98%;"
+                                     required="true" requiredMessage="Nome é obrigatória!" readonly="true" />
+                    </div>
+                    
+                    <div class="ui-g-5">
+                        <label>Descrição</label><br/>
+                        <p:inputText id="descricao" value="#{carrinhoMB.carrinho.produto.descricao}" style="width: 98%;"
+                                     required="true" requiredMessage="Descrição é obrigatória!" readonly="true" />
+                    </div>
+                   
+                    <div class="ui-g-2">
+                        <label>Preço</label>
+                        <p:inputText id="preco" value="#{carrinhoMB.carrinho.produto.preco}" style="width: 98%;"
+                                     required="true" requiredMessage="Preço é obrigatório" readonly="true" />
+                    </div>
+                    
+                    <div class="ui-g-1">
+                        <label>Quantidade</label><br/>
+                        <p:inputText id="id" value="#{carrinhoMB.carrinho.quant}" style="width: 98%;"
+                                     required="true" requiredMessage="Quantidade é obrigatória!" />
+                    </div>
+                    
+                </div>
+                <br/>
+                <div align="center">
+                    <p:commandButton action="#{carrinhoMB.adicionarCarrinho()}" value="Adicionar Carrinho" update="growl" style="margin-right: 10px;"/>
+                    <p:commandButton action="#{carrinhoMB.cancelar()}" value="Cancelar" immediate="true"/>
+                </div>
+                <br/>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>
+
